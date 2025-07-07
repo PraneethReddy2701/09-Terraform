@@ -1,7 +1,7 @@
 resource "aws_instance" "roboshop" {
-  count = 4
-  ami           = var.ami_id #this is our daily used AMI
-  instance_type = var.environment == "dev" ? "t3.micro" : "t3.small"
+  count                  = 4
+  ami                    = var.ami_id #this is our daily used AMI
+  instance_type          = var.environment == "dev" ? "t3.micro" : "t3.small"
   vpc_security_group_ids = [aws_security_group.allow_all.id]
 
   tags = {
